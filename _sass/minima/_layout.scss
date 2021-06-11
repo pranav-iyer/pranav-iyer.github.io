@@ -3,7 +3,7 @@
  */
 .site-header {
   border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-dark;
   min-height: $spacing-unit * 1.865;
 
   // Positioning context for the mobile navigation icon
@@ -51,7 +51,7 @@
     top: 9px;
     right: $spacing-unit / 2;
     background-color: $background-color;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $grey-color-dark;
     border-radius: 5px;
     text-align: right;
 
@@ -106,7 +106,7 @@
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid $grey-color-light;
+  border-top: 1px solid $grey-color-dark;
   padding: $spacing-unit 0;
 }
 
@@ -178,8 +178,8 @@
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
-  max-width: -webkit-calc(#{$page-content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$page-content-width} - (#{$spacing-unit} * 2));
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;
@@ -187,8 +187,8 @@
   @extend %clearfix;
 
   @include media-query($on-laptop) {
-    max-width: -webkit-calc(#{$page-content-width} - (#{$spacing-unit}));
-    max-width:         calc(#{$page-content-width} - (#{$spacing-unit}));
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
     padding-right: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
   }
@@ -266,4 +266,40 @@
       @include relative-font-size(1.125);
     }
   }
+}
+
+/**
+* Portfolio
+*
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+
+  div {
+    text-align: center;
+  }
+}
+
+.portfolio-item {
+  position: relative;
+  max-width: 100%;
+}
+
+.portfolio-item img.image-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+hr {
+  border: 1px solid darken($brand-color, 25%);
 }
