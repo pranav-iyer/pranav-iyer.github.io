@@ -275,7 +275,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
 
   div {
     text-align: center;
@@ -285,6 +285,10 @@
 .portfolio-item {
   position: relative;
   max-width: 100%;
+}
+
+.portfolio-item img {
+  border-radius: 10px;
 }
 
 .portfolio-item img.image-hover {
